@@ -4,10 +4,14 @@ const session = require('express-session')
 var cookieParser = require('cookie-parser');
 var port_number = 3000;
 
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+const server = require('http').Server(app)
+const io = require('socket.io')(server)
 
 //database initialization
 var db = require('./database/db')
@@ -27,6 +31,7 @@ app.use(session({
 }))
 
 app.use('/', indexRouter);
+// app.use('/stream', streamRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
@@ -46,7 +51,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(port_number,(err)=>{
+server.listen(port_number,(err)=>{
   if(!err){
     console.log(`Video call app is listening at ${port_number}`)
   }
