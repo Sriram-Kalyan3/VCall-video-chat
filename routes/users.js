@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const userModel = require('../database/models/usermodel')
 
 /* GET users logging. */
@@ -38,11 +38,34 @@ router.post('/login', function(req, res) {
 /*users signup */
 
 router.get('/signup',(req,res)=>{
-  res.render('signup',{info:''})
+  res.render('signup',{info:'',error:''})
 })
 
 router.post('/signup',(req,res)=>{
-  res.render('signup',{info:'Signup success'})
+  const username = req.body.username
+  const useremail = req.body.useremail
+  const userpass = req.body.password
+  console.log(req.body)
+  userModel.findOne({email: useremail})
+  .then((user)=>{
+    if(user){
+      res.render('signup',{info:'',error:'User with this email already exists try another'})
+      return 
+    }
+    userModel.create({
+      username: username,
+      email : useremail,
+      password: userpass
+    })
+    .then(()=>{
+      res.render('login',{ error: 'You have successfully signed up. Please login now.'})
+    })
+    .catch((err)=>{
+      console.log('hi')
+      res.render('error',{error: err})
+    })
+  })
+  // res.render('signup',{info:'Signup success', error:''})
 })
 
 /* users logging out */
@@ -67,6 +90,14 @@ data sent should be similar to:
   useremail: 'example@mail.com',
   password : 'something'
 }
+*/
 
-
+/*
+After clicking on signup at frontend
+data sent should be similar to:
+{
+  useremail: 'example@mail.com',
+  username : 'name of user',
+  password : 'something'
+}
 */

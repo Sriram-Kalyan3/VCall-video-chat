@@ -1,2 +1,48 @@
-<h3>Sign up here</h3>
-<h4><%= info %></h4></4>
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Register Form</title>
+    <link rel="stylesheet" href="../stylesheets/signuppage.css" />
+
+</head>
+<body class=register-container>
+<div id="registerform" class="register-box">
+        <form method="POST" class="form-box" onsubmit = "return fun()">
+            <div>
+                <div class="heading">
+                    <h1>Registration Form</h1>
+                </div>
+                <div class=table-box>
+                    <table>
+                        <tr>
+                            <td>Full Name</td>
+                            <td><input type="text" placeholder="Enter your name"  name="name"  required class="input-box" /></td>
+                        </tr>
+                        <tr>
+                            <td>email</td>
+                            <td><input type="email" placeholder="Enter your email_id " name="email" required class="input-box" /></td>
+                        </tr>
+                        <tr>
+                            <td>password</td>
+                            <td><input type="password" placeholder="Enter password" required onchange="form.re_password.pattern = this.value" name="password" id='enterpassword' minlength = "6"class="input-box" /></td>
+                        </tr>
+                        <tr>
+                            <td>Re- enter your password</td>
+                            <td><input type="password" placeholder="Conform password" name="re_password" pattern="" required id='reenterpassword' class="input-box" /><br>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="para-box" id='error-message'></p>
+                <div>
+                    <input type="submit" value="Register" class="register-button">
+                </div>
+                <h3 class='login-box'>already have a account? <a style="color:red;" href="{% url 'signin' %}">Login</a></h3>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="../javascripts/signuppage.js"></script>
+</html>
