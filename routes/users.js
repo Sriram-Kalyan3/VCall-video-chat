@@ -27,7 +27,7 @@ router.post('/login', function(req, res) {
     req.session.isLoggedIn = true
     req.session.user = user
     console.log(req.session)
-    res.render('home',{info:'login success'})
+    res.render('home',{info:'login success',error:''})
   })
   .catch((err)=>{
     res.render('login',{info:'login failed'})
@@ -45,7 +45,14 @@ router.post('/signup',(req,res)=>{
   res.render('signup',{info:'Signup success'})
 })
 
-
+/* users logging out */
+router.get('/logout',(req,res)=>{
+  if (req.session.isLoggedIn){
+    req.session.isLoggedIn = false
+    req.session.destroy()
+    res.redirect('/')
+  }
+})
 
 
 

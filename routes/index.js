@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if(req.session.isLoggedIn){
-    res.render('home',{info:'home here', error:''})
+    res.render('home',{info:'home here', error:'session restored'})
   }else{
     res.render('login', { error: '' });
   }
