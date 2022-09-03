@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+const session = require('express-session')
 var cookieParser = require('cookie-parser');
 var port_number = 3000;
 
@@ -19,6 +20,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('public'));
+app.use(session({
+	secret: 'keyboard cat',
+	resave : false,
+	saveUninitialized: true
+}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

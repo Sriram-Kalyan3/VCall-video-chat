@@ -7,7 +7,7 @@ router.get('/login', function(req, res, next) {
   res.redirect('/');
 });
 router.post('/login', function(req, res) {
-	const userMail = req.body.mail
+	const userMail = req.body.useremail
 	const password = req.body.password
   console.log(req.body)
   if(!userMail){
@@ -20,11 +20,18 @@ router.post('/login', function(req, res) {
   }
   userModel.findOne({email: userMail,password:password})
   .then(function(user){
+    if(!user){
+      res.render('login',{error: 'You are not a user. Kindly create an account below'})
+      return 
+    }
     req.session.isLoggedIn = true
     req.session.user = user
+    console.log(req.session)
     res.render('home',{info:'login success'})
   })
-  res.render('login',{info:'login failed'})
+  .catch((err)=>{
+    res.render('login',{info:'login failed'})
+  })
 
 });
 
