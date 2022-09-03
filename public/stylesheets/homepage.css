@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+.detailed-view-bg-container {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    background-color: #00122e;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.nav-container {
+    padding: 10px;
+    background-color: #182842;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+}
+
+.detailed-view-card-container {
+    background-color: #00122e;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    margin: 24px;
+}
+
+.button-box {
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin: 20px;
+    border: none;
+}
+
+.video-box {
+    border-radius: 10px;
+
+}
+
+.user-name {
+    font-family: Roboto;
+    font-size: 20px;
+    padding-right: 20px;
+    color: white;
+}

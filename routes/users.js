@@ -27,10 +27,10 @@ router.post('/login', function(req, res) {
     req.session.isLoggedIn = true
     req.session.user = user
     console.log(req.session)
-    res.render('home',{info:'login success',error:''})
+    res.render('home',{info:'login success',error:'',username: req.session.user.username})
   })
   .catch((err)=>{
-    res.render('login',{info:'login failed'})
+    res.render('login',{error:'login failed'})
   })
 
 });

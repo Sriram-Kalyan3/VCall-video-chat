@@ -9,7 +9,7 @@
 </head>
 <body class=register-container>
 <div id="registerform" class="register-box">
-        <form method="POST" class="form-box" onsubmit = "return fun()">
+        <form method="POST" class="form-box">
             <div>
                 <div class="heading">
                     <h1>Registration Form</h1>
@@ -39,7 +39,7 @@
                 <div>
                     <input type="submit" value="Register" class="register-button">
                 </div>
-                <h3 class='login-box'>already have a account? <a style="color:red;" href="{% url 'signin' %}">Login</a></h3>
+                <h3 class='login-box'>already have a account? <a style="color:red;" href="/users/login">Login</a></h3>
             </div>
         </form>
     </div>
