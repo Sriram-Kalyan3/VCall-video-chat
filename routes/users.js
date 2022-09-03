@@ -96,8 +96,8 @@ data sent should be similar to:
 After clicking on signup at frontend
 data sent should be similar to:
 {
-  useremail: 'example@mail.com',
-  username : 'name of user',
+  email: 'example@mail.com',
+  name : 'name of user',
   password : 'something'
 }
 */
