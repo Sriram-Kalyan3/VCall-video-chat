@@ -42,8 +42,8 @@ router.get('/signup',(req,res)=>{
 })
 
 router.post('/signup',(req,res)=>{
-  const username = req.body.username
-  const useremail = req.body.useremail.toLowerCase()
+  const username = req.body.name
+  const useremail = req.body.email.toLowerCase()
   const userpass = req.body.password
   console.log(req.body)
   userModel.findOne({email: useremail})
