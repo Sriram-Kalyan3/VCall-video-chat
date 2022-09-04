@@ -12,8 +12,11 @@ module.exports = (io)=>{
         socket.on('join-room',(roomId,userId)=>{
             socket.join(roomId)
             socket.to(roomId).emit('user-connected',userId)
+            
+            socket.on('disconnect',()=>{
+                socket.to(roomId).emit('user-disconnected',userId)
+            })
         })
-        // console.log('VidStreamConnected')
     })
     router.get('/:room',(req,res)=>{
         res.render('room',{roomId: req.params.room})
