@@ -18,18 +18,11 @@
     background-position: center;
 }
 
-
-
-
 .logo {
     color: white;
     width: 120px;
     height: 60px;
 }
-
-
-
-
 
 .content {
     width: 100%;
@@ -131,7 +124,6 @@ a:hover {
     height: 40px;
     text-align: center;
     border: solid #16C5B2;
-
 }
 
 .para {

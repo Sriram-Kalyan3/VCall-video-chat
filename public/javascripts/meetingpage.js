@@ -1,9 +1,9 @@
 const socket = io('/stream');
 const videoGrid = document.getElementById('video-grid')
-// const myPeer = new Peer(undefined,{
-//     host: '/',
-//     port: "3001"
-// })
+const sharelink = document.getElementById('sharelink')
+
+sharelink.innerHTML += window.location.href
+
 const myPeer = new Peer()
 const myVideo = document.createElement('video')
 myVideo.muted = true
